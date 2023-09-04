@@ -26,7 +26,7 @@ namespace Biblioteca.Model
 
         public override string? ToString()
         {
-            return $"Livro: {Id}\n" +
+            return $"\nLivro: {Id}\n" +
                 $"Título: {Titulo}\n" +
                 $"Autor: {Autor}\n" +
                 $"ISBN: {ISBN}\n" +

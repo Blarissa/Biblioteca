@@ -1,51 +1,42 @@
 ﻿using Biblioteca.Data;
 using Biblioteca.Model;
+using Biblioteca.View;
 
 namespace Biblioteca.Controller
 {
     internal class LivroController
     {
         private LivroDao _dao;
+        private IInput _input;
 
-        public LivroController(LivroDao dao)
+        public LivroController(LivroDao dao, IInput input)
         {
             _dao = dao;
+            _input = input;
         }
 
         public void Adicionar()
         {
-            Console.WriteLine("Insira o título:");
-            var titulo = Console.ReadLine() + "";
-
-            Console.WriteLine("Insira o autor:");
-            var autor = Console.ReadLine() + "";
-
-            Console.WriteLine("Insira o ISBN:");
-            var isbn = long.Parse(Console.ReadLine() + "");
-
-            Console.WriteLine("Insira o ano:");
-            var ano = int.Parse(Console.ReadLine() + "");
-
-            Console.WriteLine("Insira a edição:");
-            var edicao = int.Parse(Console.ReadLine() + "");
+            var titulo = _input.Titulo();
+            var autor = _input.Autor();
+            var isbn = _input.ISBN();
+            var ano = _input.Ano();
+            var edicao = _input.Edicao();
 
             var livro = new Livro(titulo, autor, isbn, ano, edicao);
             _dao.Adicionar(livro);
-
         }
 
         public void Deletar()
-        {
-            Console.WriteLine("Insira o id:");
-            var id = int.Parse(Console.ReadLine() + "");
+        {            
+            var id = _input.ID();
 
             _dao.Deletar(id);
         }
 
         public Livro? Listar()
         {
-            Console.WriteLine("Insira o id:");
-            var id = int.Parse(Console.ReadLine() + "");
+            var id = _input.ID();
 
             return _dao.Listar(id);
         }
@@ -56,9 +47,8 @@ namespace Biblioteca.Controller
         }
 
         public IList<Livro> Pesquisar()
-        {
-            Console.WriteLine("Insira a pesquisa:");
-            var pesquisa = Console.ReadLine() + "";
+        {            
+            var pesquisa = _input.Pesquisa();
 
             return _dao.Pesquisar(pesquisa);
         }
