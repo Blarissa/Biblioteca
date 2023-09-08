@@ -10,7 +10,7 @@ namespace Biblioteca.View
 {
     public class Menu
     {
-        public static void MenuPrincipal(int opt)
+        public static void MenuPrincipal(ref int opt)
         {
             var contexto = new BibliotecaContexto();
             var dao = new LivroDao(contexto);
@@ -32,8 +32,7 @@ namespace Biblioteca.View
 
                 switch (opt)
                 {
-                    case 0:
-                        break;
+                    case 0:break;                 
 
                     case 1:
                         controller.Adicionar();

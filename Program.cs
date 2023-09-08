@@ -9,7 +9,7 @@ internal class Program
         var opt = 1;
         while (opt != 0)
         {
-            Menu.MenuPrincipal(opt);
+            Menu.MenuPrincipal(ref opt);
         }
     }
 }
