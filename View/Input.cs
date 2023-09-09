@@ -8,43 +8,43 @@ namespace Biblioteca.View
 {
     internal class Input : IInput
     {
-        public int Ano()
+        public string LerAno()
         {
             Console.WriteLine("Insira o ano:");
-            return int.Parse(Console.ReadLine() + "");
+            return Console.ReadLine() + "";
         }
 
-        public string Autor()
+        public string LerAutor()
         {
             Console.WriteLine("Insira o autor:");
             return Console.ReadLine() + "";           
         }
 
-        public int Edicao()
+        public string LerEdicao()
         {
             Console.WriteLine("Insira a edição:");
-            return int.Parse(Console.ReadLine() + "");           
+            return Console.ReadLine() + "";           
         }
 
-        public int ID()
+        public string LerID()
         {
             Console.WriteLine("Insira o ID:");
-            return int.Parse(Console.ReadLine() + "");
+            return Console.ReadLine() + "";
         }
 
-        public long ISBN()
+        public string LerISBN()
         {
             Console.WriteLine("Insira o ISBN:");
-            return long.Parse(Console.ReadLine() + "");
+            return Console.ReadLine() + "";
         }
 
-        public string Pesquisa()
+        public string LerPesquisa()
         {
             Console.WriteLine("Insira a pesquisa:");
             return Console.ReadLine() + "";
         }
 
-        public string Titulo()
+        public string LerTitulo()
         {
             Console.WriteLine("Insira o título:");
             return Console.ReadLine() + "";           

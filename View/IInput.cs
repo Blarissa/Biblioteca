@@ -8,12 +8,12 @@ namespace Biblioteca.View
 {
     internal interface IInput
     {
-        string Autor();
-        int Ano();
-        int Edicao();
-        int ID();
-        long ISBN();
-        string Pesquisa();
-        string Titulo();
+        string LerAutor();
+        string LerAno();
+        string LerEdicao();
+        string LerID();
+        string LerISBN();
+        string LerPesquisa();
+        string LerTitulo();
     }
 }

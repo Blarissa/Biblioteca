@@ -15,7 +15,9 @@ namespace Biblioteca.View
             var contexto = new BibliotecaContexto();
             var dao = new LivroDao(contexto);
             var input = new Input();
-            var controller = new LivroController(dao, input);
+            var validacao = new Validacao();
+            var dados = new RetornoDados(input, validacao);
+            var controller = new LivroController(dao, dados);
 
             Console.WriteLine(
             $"Biblioteca\n" +
