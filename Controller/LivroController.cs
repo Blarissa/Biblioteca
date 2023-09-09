@@ -7,21 +7,21 @@ namespace Biblioteca.Controller
     internal class LivroController
     {
         private LivroDao _dao;
-        private IInput _input;
+        private IRetornodados _dados;
 
-        public LivroController(LivroDao dao, IInput input)
+        public LivroController(LivroDao dao, IRetornodados dados)
         {
             _dao = dao;
-            _input = input;
+            _dados = dados;
         }
 
         public void Adicionar()
         {
-            var titulo = _input.Titulo();
-            var autor = _input.Autor();
-            var isbn = _input.ISBN();
-            var ano = _input.Ano();
-            var edicao = _input.Edicao();
+            var titulo = _dados.Titulo();
+            var autor = _dados.Autor();
+            var isbn = _dados.ISBN();
+            var ano = _dados.Ano();
+            var edicao = _dados.Edicao();
 
             var livro = new Livro(titulo, autor, isbn, ano, edicao);
             _dao.Adicionar(livro);
@@ -29,14 +29,14 @@ namespace Biblioteca.Controller
 
         public void Deletar()
         {            
-            var id = _input.ID();
+            var id = _dados.ID();
 
             _dao.Deletar(id);
         }
 
         public Livro? Listar()
         {
-            var id = _input.ID();
+            var id = _dados.ID();
 
             return _dao.Listar(id);
         }
@@ -48,7 +48,7 @@ namespace Biblioteca.Controller
 
         public IList<Livro> Pesquisar()
         {            
-            var pesquisa = _input.Pesquisa();
+            var pesquisa = _dados.Pesquisa();
 
             return _dao.Pesquisar(pesquisa);
         }
