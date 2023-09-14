@@ -5,8 +5,17 @@ Aplicação console para um repositório de livros
 
 **Funcionalidades**
 
+**Livro**
 - Adicionar livro
-- Deletar livro
-- Listar livro por id
 - Listar todos os livros
 - Pesquisar livro
+
+**Leitor**
+- Adicionar leitor
+- Listar todos os leitores
+- Pesquisar leitor
+
+**Empréstimo**
+- Adicionar espréstimo
+- Listar todos os espréstimos
+- Pesquisar espréstimo
