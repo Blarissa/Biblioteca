@@ -12,7 +12,7 @@ namespace Biblioteca.Controller
         {
             var ano = int.Parse(valor);
 
-            if (ano > DateTime.Now.Year )
+            if (ano > DateTime.Now.Year)
                 return false;
 
             return true;

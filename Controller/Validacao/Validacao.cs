@@ -7,20 +7,28 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Controller
 {
-    internal class Validacao : IValidacao
+    public class Validacao : IValidacao
     {
         public bool Ano(string valor)
         {
-            if(ValidacaoFormato.Ano(valor) && 
+            if (ValidacaoFormato.Ano(valor) &&
                 ValidacaoRegras.Ano(valor))
                 return true;
-            
-            return false;            
+
+            return false;
         }
 
         public bool Edicao(string valor)
         {
-            if(ValidacaoFormato.Edicao(valor))
+            if (ValidacaoFormato.Edicao(valor))
+                return true;
+
+            return false;
+        }
+
+        public bool Email(string valor)
+        {
+            if(ValidacaoFormato.Email(valor))
                 return true;
 
             return false;
@@ -28,7 +36,7 @@ namespace Biblioteca.Controller
 
         public bool ID(string valor)
         {
-            if(ValidacaoFormato.ID(valor))
+            if (ValidacaoFormato.ID(valor))
                 return true;
 
             return false;
@@ -36,7 +44,7 @@ namespace Biblioteca.Controller
 
         public bool ISBN(string valor)
         {
-            if(ValidacaoFormato.ISBN(valor)) 
+            if (ValidacaoFormato.ISBN(valor))
                 return true;
 
             return false;
@@ -44,7 +52,20 @@ namespace Biblioteca.Controller
 
         public bool Nome(string valor)
         {
-            if(ValidacaoFormato.Nome(valor))
+            if (ValidacaoFormato.Nome(valor))
+                return true;
+
+            return false;
+        }
+
+        public bool Quantidade(string valor)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Telefone(string valor)
+        {
+            if(ValidacaoFormato.Telefone(valor))
                 return true;
 
             return false;
@@ -52,7 +73,7 @@ namespace Biblioteca.Controller
 
         public bool Titulo(string valor)
         {
-            if(ValidacaoFormato.Nome(valor))
+            if (ValidacaoFormato.Nome(valor))
                 return true;
 
             return false;
