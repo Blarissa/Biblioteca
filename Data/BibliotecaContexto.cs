@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Biblioteca.Data
 {
-    internal class BibliotecaContexto : DbContext
+    public class BibliotecaContexto : DbContext
     {
         public DbSet<Livro> Livros { get; set; }
-
-
+        public DbSet<Leitor> Leitores { get; set; }
+        public DbSet<Emprestimo> Emprestimos { get; set; }
 
         public BibliotecaContexto()
         {
@@ -23,6 +23,8 @@ namespace Biblioteca.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new LivroConfigurations());
+            modelBuilder.ApplyConfiguration(new LeitorConfigurations());
+            modelBuilder.ApplyConfiguration(new EmprestimoConfigurations());
         }
     }
 }
