@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Controller
 {
-    internal interface IRetornodados
+    public interface IRetornodados
     {
         string Autor();
         int Ano();
@@ -15,5 +15,9 @@ namespace Biblioteca.Controller
         long ISBN();
         string Pesquisa();
         string Titulo();
+        string Nome();
+        string Email();
+        string Telefone();
+        int Quantidade();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Biblioteca.View;
+﻿using Biblioteca.Controller;
+using Biblioteca.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Controller
 {
-    internal class RetornoDados : IRetornodados
+    public class RetornoDados : IRetornodados
     {
         private IInput _input;
         private IValidacao _validacao;
@@ -48,6 +49,16 @@ namespace Biblioteca.Controller
             return Edicao();
         }
 
+        public string Email()
+        {
+            var email = _input.LerEmail();
+
+            if (_validacao.Email(email))
+                return email;
+
+            return Email();
+        }
+
         public int ID()
         {
             var id = _input.LerID();
@@ -68,9 +79,39 @@ namespace Biblioteca.Controller
             return ISBN();
         }
 
+        public string Nome()
+        {
+            var nome = _input.LerNome();
+
+            if (_validacao.Nome(nome))
+                return nome;
+
+            return Nome();
+        }
+
         public string Pesquisa()
         {
             return _input.LerPesquisa();
+        }
+
+        public int Quantidade()
+        {
+            var quantidade = _input.LerQuantidade();
+
+            if (_validacao.Quantidade(quantidade))
+                return int.Parse(quantidade);
+
+            return Quantidade();
+        }
+
+        public string Telefone()
+        {
+            var telefone = _input.LerTelefone();
+
+            if (_validacao.Telefone(telefone))
+                return telefone;
+
+            return Telefone();
         }
 
         public string Titulo()
