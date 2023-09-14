@@ -26,6 +26,12 @@ namespace Biblioteca.View
             return Console.ReadLine() + "";           
         }
 
+        public string LerEmail()
+        {
+            Console.WriteLine("Insira o email:");
+            return Console.ReadLine() + "";
+        }
+
         public string LerID()
         {
             Console.WriteLine("Insira o ID:");
@@ -38,9 +44,27 @@ namespace Biblioteca.View
             return Console.ReadLine() + "";
         }
 
+        public string LerNome()
+        {
+            Console.WriteLine("Insira o nome:");
+            return Console.ReadLine() + "";
+        }
+
         public string LerPesquisa()
         {
             Console.WriteLine("Insira a pesquisa:");
+            return Console.ReadLine() + "";
+        }
+
+        public string LerQuantidade()
+        {
+            Console.WriteLine("Insira a quantidade:");
+            return Console.ReadLine() + "";
+        }
+
+        public string LerTelefone()
+        {
+            Console.WriteLine("Insira o telefone:");
             return Console.ReadLine() + "";
         }
 

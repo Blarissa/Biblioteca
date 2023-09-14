@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.View
 {
-    internal interface IInput
+    public interface IInput
     {
         string LerAutor();
         string LerAno();
@@ -15,5 +15,9 @@ namespace Biblioteca.View
         string LerISBN();
         string LerPesquisa();
         string LerTitulo();
+        string LerEmail();
+        string LerNome();
+        string LerTelefone();
+        string LerQuantidade();
     }
 }
