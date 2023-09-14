@@ -4,7 +4,7 @@ using Biblioteca.View;
 
 namespace Biblioteca.Controller
 {
-    internal class LivroController
+    public class LivroController
     {
         private LivroDao _dao;
         private IRetornodados _dados;
@@ -22,8 +22,9 @@ namespace Biblioteca.Controller
             var isbn = _dados.ISBN();
             var ano = _dados.Ano();
             var edicao = _dados.Edicao();
+            var quantidade = _dados.Quantidade();
 
-            var livro = new Livro(titulo, autor, isbn, ano, edicao);
+            var livro = new Livro(titulo, autor, isbn, ano, edicao, quantidade);
             _dao.Adicionar(livro);
         }
 
