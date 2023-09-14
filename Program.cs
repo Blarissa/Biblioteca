@@ -5,11 +5,17 @@ using Biblioteca.View;
 internal class Program
 {
     private static void Main()
-    {       
+    {
+        var contexto = new BibliotecaContexto();
+        var input = new Input();
+        var validacao = new Validacao();
+
+        var menu = new Menu(contexto, input, validacao);
+
         var opt = 1;
         while (opt != 0)
         {
-            Menu.MenuPrincipal(ref opt);
+            opt = menu.MenuPrincipal();
         }
     }
 }
