@@ -16,6 +16,7 @@ namespace Biblioteca.View
         private EmprestimoDao _emprestimoDao;
         private LeitorDao _leitorDao;
         private LivroDao _livroDao;
+        private DevolucaoDao _devolucaoDao;
         private IValidacao _validacao;
 
         public Menu(BibliotecaContexto contexto, IInput input, IValidacao validacao)
@@ -27,6 +28,7 @@ namespace Biblioteca.View
             _emprestimoDao = new EmprestimoDao(_contexto);
             _leitorDao = new LeitorDao(_contexto);
             _livroDao = new LivroDao(_contexto);
+            _devolucaoDao = new DevolucaoDao(_contexto);
         }
 
         public int MenuPrincipal()
@@ -38,6 +40,7 @@ namespace Biblioteca.View
             $"1 - Livros\n" +
             $"2 - Leitores\n" +
             $"3 - Empréstimos\n" +
+            $"4 - Devoluções\n" +
             $"0 - Sair\n");
 
             try
@@ -60,13 +63,17 @@ namespace Biblioteca.View
                         opt = MenuEmprestimos();
                         break;
 
+                    case 4:
+                        opt = MenuDevolucoes();
+                        break;
+
                     default:
                         Console.WriteLine("\nDigite uma opção válida\n");
                         break;
                 }
 
-            }
-            catch
+            
+            }catch
             {
                 Console.WriteLine("\nDigite uma opção válida\n");
             }
@@ -118,7 +125,9 @@ namespace Biblioteca.View
                         Console.WriteLine("\nDigite uma opção válida\n");
                         break;
                 }
-            }catch{
+            }
+            catch
+            {
                 Console.WriteLine("\nDigite uma opção válida\n");
             }
 
@@ -222,6 +231,60 @@ namespace Biblioteca.View
                         break;
 
                     case 5:
+                        opt = MenuPrincipal();
+                        break;
+
+                    default:
+                        Console.WriteLine("\nDigite uma opção válida\n");
+                        break;
+                }
+            }
+            catch
+            {
+                Console.WriteLine("\nDigite uma opção válida\n");
+            }
+
+            return opt;
+        }
+
+        public int MenuDevolucoes()
+        {
+            var controller = new DevolucaoController(_devolucaoDao, 
+                _emprestimoDao, _dados);
+            int opt = -1;
+
+            Console.WriteLine(
+            $"Biblioteca - Devoluções\n" +
+            $"1 - Adicionar devolução\n" +
+            $"2 - Listar todos as devoluções\n" +
+            $"3 - Pesquisar devolução por ID do empréstimo\n" +
+            $"4 - Voltar para menu principal\n" +
+            $"0 - Sair\n");
+
+            try
+            {
+                opt = int.Parse(Console.ReadLine() + "");
+
+                switch (opt)
+                {
+                    case 0: break;
+
+                    case 1:
+                        controller.Adicionar();
+                        Console.WriteLine("Devolução feita!\n");
+                        break;
+
+                    case 2:
+                        foreach (var devolucao in controller.ListarTodos())
+                            Console.WriteLine(devolucao.ToString());
+                        break;
+
+                    case 3:
+                        //foreach (var devolucao in controller.PesquisarPorIdEmprestimo())
+                        //    Console.WriteLine(devolucao.ToString());
+                        break;
+
+                    case 4:
                         opt = MenuPrincipal();
                         break;
 

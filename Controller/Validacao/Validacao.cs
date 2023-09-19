@@ -60,7 +60,10 @@ namespace Biblioteca.Controller
 
         public bool Quantidade(string valor)
         {
-            throw new NotImplementedException();
+            if(ValidacaoFormato.Quantidade(valor))
+                return true;
+            
+            return false;
         }
 
         public bool Telefone(string valor)
