@@ -74,7 +74,7 @@ namespace Biblioteca.Controller
             var isbn = _input.LerISBN();
 
             if (_validacao.ISBN(isbn))
-                return int.Parse(isbn);
+                return long.Parse(isbn);
 
             return ISBN();
         }

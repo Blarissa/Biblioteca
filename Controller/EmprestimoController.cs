@@ -31,7 +31,7 @@ namespace Biblioteca.Controller
 
             var emprestimo = new Emprestimo(data, idLivro, idLeitor);
             emprestimo.Livro = _livroDao.Listar(idLivro);
-            emprestimo.Livro.Quantidade--;
+            emprestimo.Emprestar();
 
             emprestimo.Leitor = _leitorDao.Listar(idLeitor);
 
