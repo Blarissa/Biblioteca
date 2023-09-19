@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RepositorioDeLivros.Migrations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Biblioteca.Model
 
         public virtual Livro Livro { get; set; }
         public virtual Leitor Leitor { get; set; }
+        public virtual Devolucao Devolucao { get; set; }
 
         public Emprestimo(DateTime dataHora, int livroId, int leitorId)
         {
@@ -29,6 +31,16 @@ namespace Biblioteca.Model
                 $"Data/Hora: {DataHora:g}\n" +
                 $"Livro: {Livro.Titulo}\n" +
                 $"Leitor: {Leitor.Nome}\n";
+        }
+
+        public void Emprestar()
+        {
+            Livro.Quantidade--;
+        }
+
+        public void Devolver()
+        {
+            Livro.Quantidade++;
         }
     }
 }

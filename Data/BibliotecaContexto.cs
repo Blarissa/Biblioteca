@@ -8,6 +8,7 @@ namespace Biblioteca.Data
         public DbSet<Livro> Livros { get; set; }
         public DbSet<Leitor> Leitores { get; set; }
         public DbSet<Emprestimo> Emprestimos { get; set; }
+        public DbSet<Devolucao> Devolucoes { get; set; }
 
         public BibliotecaContexto()
         {
@@ -25,6 +26,7 @@ namespace Biblioteca.Data
             modelBuilder.ApplyConfiguration(new LivroConfigurations());
             modelBuilder.ApplyConfiguration(new LeitorConfigurations());
             modelBuilder.ApplyConfiguration(new EmprestimoConfigurations());
+            modelBuilder.ApplyConfiguration(new DevolucaoConfigurations());
         }
     }
 }
