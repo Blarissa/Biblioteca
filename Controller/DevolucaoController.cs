@@ -10,15 +10,17 @@ namespace Biblioteca.Controller
 {
     public class DevolucaoController
     {
-        private DevolucaoDao _dao;
-        private EmprestimoDao _emprestimoDao;
+        private IDaoDevolucao _dao;
+        private IDaoEmprestimo _emprestimoDao;
         private IRetornodados _dados;
+        private IValidacaoBanco _validacaoBanco;
 
-        public DevolucaoController(DevolucaoDao dao, EmprestimoDao emprestimoDao, IRetornodados dados)
+        public DevolucaoController(IDaoDevolucao dao, IDaoEmprestimo emprestimoDao, IRetornodados dados, IValidacaoBanco validacaoBanco)
         {
             _dao = dao;
             _emprestimoDao = emprestimoDao;
             _dados = dados;
+            _validacaoBanco = validacaoBanco;
         }
 
         public void Adicionar()
@@ -26,11 +28,15 @@ namespace Biblioteca.Controller
             var data = DateTime.Now;
             var idEmprestimo = _dados.ID();
 
-            var devolucao = new Devolucao(data, idEmprestimo);
-            devolucao.Emprestimo = _emprestimoDao.Listar(idEmprestimo);
-            devolucao.Emprestimo.Devolver();
+            if(_validacaoBanco.ExisteEmprestimo(idEmprestimo) 
+                && _validacaoBanco.EstaAtivo(idEmprestimo))
+            {
+                var devolucao = new Devolucao(data, idEmprestimo);
+                devolucao.Emprestimo = _emprestimoDao.Listar(idEmprestimo);
+                devolucao.Emprestimo.Devolver();
 
-            _dao.Adicionar(devolucao);
+                _dao.Adicionar(devolucao);
+            }
         }
 
         public IList<Devolucao> ListarTodos()

@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Data;
+using Biblioteca.Data.Dao;
 using Biblioteca.Model;
 using Biblioteca.View;
 
@@ -6,10 +7,10 @@ namespace Biblioteca.Controller
 {
     public class LivroController
     {
-        private LivroDao _dao;
+        private IDaoComPesquisa<Livro> _dao;
         private IRetornodados _dados;
 
-        public LivroController(LivroDao dao, IRetornodados dados)
+        public LivroController(IDaoComPesquisa<Livro> dao, IRetornodados dados)
         {
             _dao = dao;
             _dados = dados;
@@ -28,12 +29,12 @@ namespace Biblioteca.Controller
             _dao.Adicionar(livro);
         }
 
-        public void Deletar()
-        {            
-            var id = _dados.ID();
+        //public void Deletar()
+        //{            
+        //    var id = _dados.ID();
 
-            _dao.Deletar(id);
-        }
+        //    _dao.Deletar(id);
+        //}
 
         public Livro? Listar()
         {

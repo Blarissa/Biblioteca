@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Data;
+using Biblioteca.Data.Dao;
 using Biblioteca.Model;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,10 @@ namespace Biblioteca.Controller
 {
     public class LeitorController
     {
-        private LeitorDao _dao;
+        private IDaoComPesquisa<Leitor> _dao;
         private IRetornodados _dados;
 
-        public LeitorController(LeitorDao dao, IRetornodados dados)
+        public LeitorController(IDaoComPesquisa<Leitor> dao, IRetornodados dados)
         {
             _dao = dao;
             _dados = dados;
