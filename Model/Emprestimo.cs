@@ -13,16 +13,18 @@ namespace Biblioteca.Model
         public DateTime DataHora { get; set; }
         public int LivroId { get; set; }
         public int LeitorId { get; set; }
+        public string Status { get; set; }
 
         public virtual Livro Livro { get; set; }
         public virtual Leitor Leitor { get; set; }
         public virtual Devolucao Devolucao { get; set; }
 
-        public Emprestimo(DateTime dataHora, int livroId, int leitorId)
+        public Emprestimo(DateTime dataHora, int livroId, int leitorId, string status)
         {
             DataHora = dataHora;
-            LivroId = livroId;            
+            LivroId = livroId;
             LeitorId = leitorId;
+            Status = status;
         }
 
         public override string? ToString()
@@ -30,7 +32,8 @@ namespace Biblioteca.Model
             return $"\nEmpréstimo: {Id}\n" +
                 $"Data/Hora: {DataHora:g}\n" +
                 $"Livro: {Livro.Titulo}\n" +
-                $"Leitor: {Leitor.Nome}\n";
+                $"Leitor: {Leitor.Nome}\n" +
+                $"Status: {Status}\n";
         }
 
         public void Emprestar()
@@ -41,6 +44,7 @@ namespace Biblioteca.Model
         public void Devolver()
         {
             Livro.Quantidade++;
+            Status = "DESATIVO";
         }
     }
 }

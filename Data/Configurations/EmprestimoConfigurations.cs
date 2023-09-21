@@ -23,6 +23,8 @@ namespace Biblioteca.Data
             builder.HasOne(e => e.Leitor)
                 .WithMany(l => l.Emprestimos)
                 .HasForeignKey(e => e.LeitorId);
+
+            builder.Property(e => e.Status).IsRequired();
         }
     }
 }
