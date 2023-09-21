@@ -18,6 +18,7 @@ namespace Biblioteca.Controller
 
         public void Adicionar()
         {
+            //Solicitando dados do livro e adicionando no banco
             var titulo = _dados.Titulo();
             var autor = _dados.Autor();
             var isbn = _dados.ISBN();
@@ -29,15 +30,9 @@ namespace Biblioteca.Controller
             _dao.Adicionar(livro);
         }
 
-        //public void Deletar()
-        //{            
-        //    var id = _dados.ID();
-
-        //    _dao.Deletar(id);
-        //}
-
         public Livro? Listar()
         {
+            //Solicitando ID e retornando o livro
             var id = _dados.ID();
 
             return _dao.Listar(id);
@@ -45,11 +40,13 @@ namespace Biblioteca.Controller
 
         public IList<Livro> ListarTodos()
         {
+            //Retornando todos o livros
             return _dao.ListarTodos();
         }
 
         public IList<Livro> Pesquisar()
-        {            
+        {
+            //Solicitando termo de pesquisa do livro e retornando o resultado
             var pesquisa = _dados.Pesquisa();
 
             return _dao.Pesquisar(pesquisa);

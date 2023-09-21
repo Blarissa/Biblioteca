@@ -26,12 +26,16 @@ namespace Biblioteca.Controller
         }
 
         public void Adicionar()
-        {
+        {         
             var data = DateTime.Now;
+            //Solicita dados do empréstimo e adiciona no banco
             var idLivro = _dados.ID();
             var idLeitor = _dados.ID();
 
-            //se o livro existe, se o leitor existe e se não existe uma empréstimo igual ao que está sendo adicionado
+            //se o livro existir
+            //se a quantidade de livros não estiver o limite(0)
+            //se o leitor existir e
+            //se não existe uma empréstimo igual ao que está sendo adicionado
             if(_validacaoBanco.ExisteLivro(idLivro)
                 && !_validacaoBanco.QuantidadeLimite(idLivro)
                 && _validacaoBanco.ExisteLeitor(idLeitor)
@@ -49,11 +53,13 @@ namespace Biblioteca.Controller
 
         public IList<Emprestimo> ListarTodos()
         {
+            //Retorna todos os empréstimos
             return _dao.ListarTodos();
         }
 
         public IList<Emprestimo> PesquisaPorLivro()
         {
+            //Solicitando o nome do livro e retornando o resultado da pesquisa
             var pesquisa = _dados.Pesquisa();
 
             return _dao.PesquisarPorLivro(pesquisa);
@@ -61,6 +67,7 @@ namespace Biblioteca.Controller
 
         public IList<Emprestimo> PesquisaPorLeitor()
         {
+            //Solicitando o nome do leitor e retornando o resultado da pesquisa
             var pesquisa = _dados.Pesquisa();
 
             return _dao.PesquisarPorLeitor(pesquisa);

@@ -22,6 +22,7 @@ namespace Biblioteca.Controller
 
         public void Adicionar()
         {
+            //Solicitando dados do leitor e adicionando no banco
             var nome = _dados.Nome();
             var email = _dados.Email();
             var telefone = _dados.Telefone();
@@ -32,6 +33,7 @@ namespace Biblioteca.Controller
 
         public Leitor? Listar()
         {
+            //Solicitando ID e retornando o leitor
             var id =_dados.ID();
 
             return _dao.Listar(id);
@@ -39,11 +41,13 @@ namespace Biblioteca.Controller
 
         public IList<Leitor> ListarTodos() 
         {
+            //Retornando todos os leitores
             return _dao.ListarTodos();
         }
 
         public IList<Leitor> Pesquisar()
         {
+            //Solicitando termo de pesquisa do leitor e retornando o resultado
             var pesquisa = _dados.Pesquisa();
 
             return _dao.Pesquisar(pesquisa);
