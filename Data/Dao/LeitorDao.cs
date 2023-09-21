@@ -1,4 +1,5 @@
-﻿using Biblioteca.Model;
+﻿using Biblioteca.Data.Dao;
+using Biblioteca.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Data
 {
-    public class LeitorDao
+    public class LeitorDao : IDaoComPesquisa<Leitor>
     {
         private BibliotecaContexto _contexto;
 

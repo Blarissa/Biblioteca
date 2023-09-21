@@ -1,8 +1,9 @@
-﻿using Biblioteca.Model;
+﻿using Biblioteca.Data.Dao;
+using Biblioteca.Model;
 
 namespace Biblioteca.Data
 {
-    public class LivroDao
+    public class LivroDao : IDaoComPesquisa<Livro>
     {
         private BibliotecaContexto _contexto;
 

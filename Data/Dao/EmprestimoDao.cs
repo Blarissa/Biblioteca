@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Data
 {
-    public class EmprestimoDao
+    public class EmprestimoDao: IDaoEmprestimo
     {
         private BibliotecaContexto _contexto;
 

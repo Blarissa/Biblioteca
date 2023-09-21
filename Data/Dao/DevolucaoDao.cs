@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.Data
 {
-    public class DevolucaoDao
-    {
+    public class DevolucaoDao : IDaoDevolucao 
+    { 
         private BibliotecaContexto _contexto;
 
         public DevolucaoDao(BibliotecaContexto contexto)
