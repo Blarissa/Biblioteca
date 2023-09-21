@@ -38,6 +38,24 @@ namespace Biblioteca.View
             return Console.ReadLine() + "";
         }
 
+        public string LerIDLivro()
+        {
+            Console.WriteLine("Insira o ID do livro:");
+            return Console.ReadLine() + "";
+        }
+
+        public string LerIDLeitor()
+        {
+            Console.WriteLine("Insira o ID do leitor:");
+            return Console.ReadLine() + "";
+        }
+        
+        public string LerIDEmprestimo()
+        {
+            Console.WriteLine("Insira o ID do empréstimo:");
+            return Console.ReadLine() + "";
+        }
+
         public string LerISBN()
         {
             Console.WriteLine("Insira o ISBN:");
