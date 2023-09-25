@@ -33,7 +33,7 @@ namespace Biblioteca.Controller
         public Livro? Listar()
         {
             //Solicitando ID e retornando o livro
-            var id = _dados.ID();
+            var id = _dados.ID(0);
 
             return _dao.Listar(id);
         }

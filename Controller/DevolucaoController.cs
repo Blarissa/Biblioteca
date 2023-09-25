@@ -27,7 +27,7 @@ namespace Biblioteca.Controller
         {
             var data = DateTime.Now;
             //Solicitando dados da devolução e adicionando no banco
-            var idEmprestimo = _dados.ID();
+            var idEmprestimo = _dados.ID(2);
 
             //se existir o empréstimo e 
             //se o empréstimo estiver "ATIVO"
@@ -51,7 +51,7 @@ namespace Biblioteca.Controller
         public Devolucao PesquisarPorIdEmprestimo()
         {
             //Solicitando o ID do empréstimo e retornando o resultado da pesquisa
-            var id = _dados.ID();
+            var id = _dados.ID(2);
 
             return _dao.PesquisarPorIdEmprestimo(id);
         }

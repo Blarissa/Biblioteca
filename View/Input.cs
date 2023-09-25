@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Biblioteca.View
 {
-    internal class Input : IInput
+    public class Input : IInput
     {
         public string LerAno()
         {

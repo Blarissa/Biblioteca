@@ -29,8 +29,8 @@ namespace Biblioteca.Controller
         {         
             var data = DateTime.Now;
             //Solicita dados do empréstimo e adiciona no banco
-            var idLivro = _dados.ID();
-            var idLeitor = _dados.ID();
+            var idLivro = _dados.ID(0);
+            var idLeitor = _dados.ID(1);
 
             //se o livro existir
             //se a quantidade de livros não estiver o limite(0)

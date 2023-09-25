@@ -11,7 +11,7 @@ namespace Biblioteca.Controller
         string Autor();
         int Ano();
         int Edicao();
-        int ID();
+        int ID(int opt);
         long ISBN();
         string Pesquisa();
         string Titulo();

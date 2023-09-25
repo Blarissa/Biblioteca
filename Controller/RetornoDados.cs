@@ -59,14 +59,29 @@ namespace Biblioteca.Controller
             return Email();
         }
 
-        public int ID()
+        public int ID(int opt)
         {
-            var id = _input.LerID();
+            var id = "";
+
+            switch (opt)
+            {
+                case 0: 
+                    id = _input.LerIDLivro();
+                    break;
+
+                case 1:
+                    id = _input.LerIDLeitor();
+                    break;
+
+                case 2:
+                    id = _input.LerIDEmprestimo();
+                    break;
+            }
 
             if (_validacao.ID(id))
                 return int.Parse(id);
 
-            return ID();
+            return ID(opt);
         }
 
         public long ISBN()

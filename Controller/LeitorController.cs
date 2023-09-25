@@ -34,7 +34,7 @@ namespace Biblioteca.Controller
         public Leitor? Listar()
         {
             //Solicitando ID e retornando o leitor
-            var id =_dados.ID();
+            var id =_dados.ID(1);
 
             return _dao.Listar(id);
         }
